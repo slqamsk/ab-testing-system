@@ -34,7 +34,7 @@ $currentText = $texts[$variant];
 <body>
     <h1><?php echo $currentText; ?></h1>
     <p>Текущий вариант: <?php echo $variant; ?></p>
-    <p>Заполните форму</p>
+    <p>Заполните форму:</p>
     <form onsubmit="return false;">
         <input type="text" placeholder="Имя">
         <input type="email" placeholder="Email">
