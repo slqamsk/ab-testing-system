@@ -1,9 +1,8 @@
 name: 🚀 Deploy to FTP
-
 on:
   push:
     branches: [main]
-  workflow_dispatch: # Добавить ручной запуск
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -26,4 +25,5 @@ jobs:
           **/.git*
           **/.github*
           **/README.md
-          **/.gitignore
+          **/LICENSE
+          **/.ftp-deploy*
