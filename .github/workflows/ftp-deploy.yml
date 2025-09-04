@@ -1,9 +1,8 @@
 name: 🚀 Deploy to FTP
-
 on:
   push:
     branches: [main]
-  workflow_dispatch: # Добавить ручной запуск
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -21,9 +20,4 @@ jobs:
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         local-dir: ./
-        server-dir: ${{ secrets.FTP_SERVER_DIR }}
-        exclude: |
-          **/.git*
-          **/.github*
-          **/README.md
-          **/.gitignore
+        # Убираем server-dir полностью для теста
