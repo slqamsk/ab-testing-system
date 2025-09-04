@@ -1,0 +1,29 @@
+name: 🚀 Deploy to FTP
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: # Добавить ручной запуск
+
+jobs:
+  deploy:
+    name: 📦 Deploy
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 🛒 Checkout code
+      uses: actions/checkout@v4
+
+    - name: 📤 FTP Deploy
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        local-dir: ./
+        server-dir: ${{ secrets.FTP_SERVER_DIR }}
+        exclude: |
+          **/.git*
+          **/.github*
+          **/README.md
+          **/.gitignore
